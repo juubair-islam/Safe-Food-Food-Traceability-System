@@ -235,3 +235,38 @@ $(document).ready(function() {
         }
     });
 });
+
+function searchCrop() {
+    const batchNumber = document.getElementById('batchNumber').value;
+    if (batchNumber) {
+      document.getElementById('cropDetails').style.display = 'block';
+    }
+  }
+  
+  function login() {
+    const role = document.getElementById('userRole').value;
+    const password = document.getElementById('password').value;
+  
+    const passwords = {
+      "Processing Unit Manager": "pum123",
+      "Supervisor": "supervisor123",
+      "Government Officer": "govt123",
+      "Cold-Storage In Charge": "coldstorage123",
+      "Retailer": "retailer123"
+    };
+  
+    if (password === passwords[role]) {
+      alert(`${role} logged in successfully! Redirecting...`);
+      const rolePages = {
+        "Processing Unit Manager": "processing_unit_manager_dashboard.html",
+        "Supervisor": "supervisor_dashboard.html",
+        "Government Officer": "government_officer_dashboard.html",
+        "Cold-Storage In Charge": "cold_storage_in_charge_dashboard.html",
+        "Retailer": "retailer_dashboard.html"
+      };
+      window.location.href = rolePages[role];
+    } else {
+      alert('Incorrect password. Please try again.');
+    }
+  }
+  

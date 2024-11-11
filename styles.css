@@ -7,9 +7,9 @@ body {
     transition: background-color 0.5s ease; /* Smooth transition for background color */
 }
 
-/* Header styles */
+
 header {
-    background-color: #4caf50; /* Green header */
+    background-color: #4caf50; 
     color: white; /* White text */
     padding: 20px;
     text-align: center;
@@ -17,7 +17,7 @@ header {
     animation: fadeIn 1s; /* Fade in effect */
 }
 
-/* Navigation styles */
+
 nav {
     background-color: #388e3c; /* Darker green for the nav */
     padding: 10px;
@@ -148,3 +148,518 @@ tr:hover {
 .chart-container {
     margin-top: 20px;
 }
+
+
+/* Header */
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    background-color: #f8f8f8;
+  }
+  
+  .header-logo {
+    width: 50px;
+    height: auto;
+  }
+  
+  h1 {
+    font-size: 1.5em;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+  }
+  
+  /* Main Content */
+  main {
+    padding: 20px;
+  }
+  
+  .login-container {
+    margin-bottom: 30px;
+  }
+  
+  .login-container h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+  }
+  
+  .login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  .login-container label {
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .login-container select,
+  .login-container input {
+    padding: 10px;
+    font-size: 1em;
+    width: 100%;
+  }
+  
+  .login-container button {
+    padding: 10px;
+    font-size: 1.1em;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .login-container button:hover {
+    background-color: #218838;
+  }
+  
+  .search-crop-container {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .search-crop-container input {
+    padding: 10px;
+    font-size: 1em;
+    width: 200px;
+  }
+  
+  .search-crop-container button {
+    padding: 10px;
+    font-size: 1.1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .search-crop-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  #crop-data {
+    display: none;
+    margin-top: 20px;
+  }
+  
+  #crop-data p {
+    font-size: 1.2em;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  footer a {
+    color: #f8f8f8;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
+  footer p {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  footer p a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #f8f8f8;
+  }
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #4CAF50;
+  padding: 20px;
+}
+
+.header-logo {
+  height: 60px;
+}
+
+h1 {
+  font-size: 24px;
+  color: white;
+  margin-left: 10px;
+}
+
+.login-btn {
+  padding: 10px 20px;
+  background-color: white;
+  color: #4CAF50;
+  border: none;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background-color: #ddd;
+}
+
+/* Main Content */
+.company-intro {
+  text-align: center;
+  padding: 50px;
+  background-color: #f4f4f4;
+  animation: fadeIn 2s ease-in;
+}
+
+.company-intro h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.intro-text {
+  font-size: 18px;
+  color: #333;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Search Crop */
+.search-crop {
+  padding: 20px;
+  text-align: center;
+}
+
+.search-crop input, .search-crop button {
+  padding: 10px;
+  margin: 5px;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #4CAF50;
+    padding: 20px;
+  }
+  
+  .header-logo {
+    height: 60px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: white;
+    margin-left: 10px;
+  }
+  
+  /* Login Container */
+  .login-container {
+    width: 90%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .login-container h2 {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .login-container label {
+    display: block;
+    font-size: 14px;
+    margin: 10px 0 5px;
+    color: #666;
+  }
+  
+  .login-container select, 
+  .login-container input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: border 0.3s;
+  }
+  
+  .login-container select:focus, 
+  .login-container input[type="password"]:focus {
+    border-color: #4CAF50;
+  }
+  
+  .login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .login-container button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+  }
+  
+
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #4CAF50;
+    padding: 10px 20px;
+  }
+  
+  .header-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .header-logo {
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: white;
+    margin: 0;
+  }
+  
+  .login-button {
+    padding: 8px 16px;
+    background-color: white;
+    color: #4CAF50;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  .intro {
+    font-size: 18px;
+    margin-bottom: 20px;
+    animation: fadeIn 2s;
+  }
+  
+  .search-crop-section {
+    margin-top: 20px;
+  }
+  
+  .search-crop-section h2 {
+    margin-bottom: 10px;
+  }
+  
+  .batch-input {
+    padding: 8px;
+    width: 200px;
+  }
+  
+  .crop-info {
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #4CAF50;
+    padding: 10px 20px;
+  }
+  
+  .header-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .header-logo {
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: white;
+    margin: 0;
+  }
+  
+  .login-button {
+    padding: 8px 16px;
+    background-color: white;
+    color: #4CAF50;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  .intro {
+    font-size: 18px;
+    margin-bottom: 20px;
+    animation: fadeIn 2s;
+  }
+  
+  .search-crop-section {
+    margin-top: 20px;
+  }
+  
+  .search-crop-section h2 {
+    margin-bottom: 10px;
+  }
+  
+  .batch-input {
+    padding: 8px;
+    width: 200px;
+  }
+  
+  .crop-info {
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  /* Footer Styling */
+  footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+  
+  .footer-left, .footer-right {
+    font-size: 14px;
+  }
+  
+  .footer-left {
+    text-align: left;
+  }
+  
+  .footer-right {
+    text-align: right;
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
