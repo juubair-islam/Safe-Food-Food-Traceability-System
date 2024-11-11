@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutritionist Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>SAFE FOOD TRACEABILITY SYSTEM</h1>
+    <nav>
+      <ul>
+        <li><a href="nutritionist_dashboard.html">Nutritionist Dashboard</a></li>
+        <li><a href="processing_unit_manager_dashboard.html">Processing Unit Manager Dashboard</a></li>
+        <li><a href="government_officer_dashboard.html">Government Officer Dashboard</a></li>
+        <li><a href="temperature-graph.html">Temperature Graph</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="dashboard">
+      <h2>Live Temperature and Humidity Graph</h2>
+      <canvas id="tempHumidityGraph" width="400" height="200"></canvas>
+    </div>
+  </main>
+  <script src="nutritionist.js"></script>
+  <script>
+    // Dummy data for demonstration
+    const labels = Array.from({ length: 10 }, (_, i) => i); // Create 10 labels (0-9)
+    const temperatureData = Array.from({ length: 10 }, () => Math.floor(Math.random() * 10) + 20); // Random temperature between 20 and 30
+    const humidityData = Array.from({ length: 10 }, () => Math.floor(Math.random() * 30) + 40); // Random humidity between 40 and 70
+
+    const ctx = document.getElementById('tempHumidityGraph').getContext('2d');
+    const tempHumidityChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: 'Temperature (°C)',
+            data: temperatureData,
+            borderColor: 'rgba(255, 99, 132, 1)',
+            fill: false,
+            borderWidth: 2
+          },
+          {
+            label: 'Humidity (%)',
+            data: humidityData,
+            borderColor: 'rgba(54, 162, 235, 1)',
+            fill: false,
+            borderWidth: 2
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        animation: {
+          duration: 0 // Disable animation for faster updates
+        },
+        scales: {
+          x: {
+            type: 'linear',
+            position: 'bottom',
+            title: {
+              display: true,
+              text: 'Time'
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Value'
+            }
+          }
+        }
+      }
+    });
+
+    // Function to update the graph with new data
+    function updateGraph() {
+      const newTemperature = Math.floor(Math.random() * 10) + 20; // New random temperature
+      const newHumidity = Math.floor(Math.random() * 30) + 40; // New random humidity
+
+      // Remove the first element (older data)
+      temperatureData.shift();
+      humidityData.shift();
+      labels.shift();
+
+      // Add new data points
+      temperatureData.push(newTemperature);
+      humidityData.push(newHumidity);
+      labels.push(labels[labels.length - 1] + 1); // Increment the latest label
+
+      // Update the chart
+      tempHumidityChart.update();
+    }
+
+    // Update the graph every second
+    setInterval(updateGraph, 1000);
+  </script>
+</body>
+</html>

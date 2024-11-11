@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Crop - Safe Food Traceability System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header style="background-color: #4CAF50;">
+    <a href="index.html" class="header-link">
+      <img src="image/Logo.png" alt="Logo" class="header-logo">
+      <h1>SAFE FOOD TRACEABILITY SYSTEM</h1>
+    </a>
+    <div class="user-info">
+      <span id="loggedInName">Processing Unit Manager</span> <!-- Display logged-in user's name -->
+    </div>
+  </header>
+
+  <!-- Hamburger Button -->
+  <button class="hamburger" onclick="toggleNav()">&#9776;</button>
+
+  <!-- Side Navigation -->
+  <div id="sideNav" class="side-nav">
+    <ul>
+      <li><a href="processing_unit_manager_dashboard.html">View Crops</a></li>
+      <li><a href="add_crop.html">Add Crop</a></li>
+      <li><a href="#">Cold-Storage Details</a></li>
+      <li><a href="#">Retailer Details</a></li>
+      <li><a href="#">Waste-Management Details</a></li>
+      <li><a href="login.html">Logout</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <h2>Add Crop</h2>
+    <form id="addCropForm">
+      <label for="district">Select Area:</label>
+      <select id="district" required>
+        <!-- Dummy list of districts in Bangladesh -->
+        <option value="Dhaka">Dhaka</option>
+        <option value="Chittagong">Chittagong</option>
+        <option value="Khulna">Khulna</option>
+        <option value="Rajshahi">Rajshahi</option>
+        <option value="Sylhet">Sylhet</option>
+        <option value="Barisal">Barisal</option>
+      </select><br>
+
+      <label for="farmerName">Enter Farmer Name:</label>
+      <input type="text" id="farmerName" placeholder="Enter Farmer's Name" required><br>
+
+      <label for="fieldLocation">Field Location:</label>
+      <input type="text" id="fieldLocation" placeholder="Enter Field Location" required><br>
+
+      <label for="crop">Select Crop:</label>
+      <select id="crop" required>
+        <option value="Rice">Rice</option>
+        <option value="Wheat">Wheat</option>
+        <option value="Maize">Maize</option>
+        <option value="Barley">Barley</option>
+        <option value="Sugarcane">Sugarcane</option>
+      </select><br>
+
+      <!-- Crop Data Table (Temperature, Humidity, Day Limit, Nutrition Value) -->
+      <div id="cropDetails" style="display:none;">
+        <h3>Crop Details</h3>
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Temperature (°C)</th>
+              <th>Humidity (%)</th>
+              <th>Day Limit</th>
+              <th>Nutrition Value by Days</th>
+            </tr>
+          </thead>
+          <tbody id="cropData">
+            <!-- Dummy Data (will be displayed based on selected crop) -->
+            <tr>
+              <td>28</td>
+              <td>75</td>
+              <td>90</td>
+              <td>High</td>
+            </tr>
+            <tr>
+              <td>30</td>
+              <td>80</td>
+              <td>80</td>
+              <td>Medium</td>
+            </tr>
+            <tr>
+              <td>25</td>
+              <td>70</td>
+              <td>100</td>
+              <td>High</td>
+            </tr>
+          </tbody>
+        </table><br>
+      </div>
+
+      <label for="harvestDate">Harvest Date:</label>
+      <input type="date" id="harvestDate" required><br>
+
+      <label for="quantity">Select Quantity:</label>
+      <input type="number" id="quantity" placeholder="Enter Quantity" required><br>
+
+      <!-- Automated Batch Number -->
+      <label for="batchNumber">Batch Number:</label>
+      <input type="text" id="batchNumber" value="BATCH-001" readonly><br>
+
+      <button type="submit">Add Crop</button>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-left">
+      <p>Contact us: contact@safefoodtrace.com</p>
+    </div>
+    <div class="footer-right">
+      <p>&copy; All rights reserved to Team Akaimma</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

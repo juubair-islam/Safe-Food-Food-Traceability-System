@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safe Food Traceability System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="header-link">
+      <img src="image/Logo.png" alt="Logo" class="header-logo">
+      <h1>SAFE FOOD TRACEABILITY SYSTEM</h1>
+    </a>
+    <a href="login.html" class="login-button">Login</a>
+  </header>
+  
+  <main>
+    <!-- Introduction / Motto Section -->
+    <section class="company-intro">
+      <h2>Welcome to Safe Food Traceability System</h2>
+      <p class="intro-text">Ensuring transparency, safety, and quality in food from farm to table. We are committed to a healthier, safer, and more sustainable future for everyone.</p>
+    </section>
+
+    <!-- Search Crop Section -->
+    <section class="search-crop">
+      <h3>Search Crop</h3>
+      <input type="text" id="batchNumber" placeholder="Enter Batch Number">
+      <button onclick="searchCrop()">Search</button>
+      <div id="cropDetails" style="display: none;">
+        <table>
+          <tr><th>Product Description</th><td>Fresh Organic Tomato</td></tr>
+          <tr><th>Harvest Date</th><td>2024-10-15</td></tr>
+          <tr><th>Nutrition Value</th><td>Rich in Vitamins A and C</td></tr>
+          <tr><th>Best Before Use</th><td>2024-11-15</td></tr>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-left">
+      <p>Contact us: contact@safefoodtrace.com</p>
+    </div>
+    <div class="footer-right">
+      <p>&copy; All rights reserved to Team Akaimma</p>
+    </div>
+  </footer>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
