@@ -247,6 +247,7 @@ function searchCrop() {
     const role = document.getElementById('userRole').value;
     const password = document.getElementById('password').value;
   
+    // Passwords for each role
     const passwords = {
       "Processing Unit Manager": "pum123",
       "Supervisor": "supervisor123",
@@ -255,18 +256,87 @@ function searchCrop() {
       "Retailer": "retailer123"
     };
   
+    // Role-specific pages
+    const rolePages = {
+      "Processing Unit Manager": "processing_unit_manager_dashboard.html",
+      "Supervisor": "supervisor_dashboard.html",
+      "Government Officer": "government_officer_dashboard.html",
+      "Cold-Storage In Charge": "cold_storage_in_charge_dashboard.html",
+      "Retailer": "retailer_dashboard.html"
+    };
+  
+    // Check if the entered password matches the selected role's password
     if (password === passwords[role]) {
       alert(`${role} logged in successfully! Redirecting...`);
-      const rolePages = {
-        "Processing Unit Manager": "processing_unit_manager_dashboard.html",
-        "Supervisor": "supervisor_dashboard.html",
-        "Government Officer": "government_officer_dashboard.html",
-        "Cold-Storage In Charge": "cold_storage_in_charge_dashboard.html",
-        "Retailer": "retailer_dashboard.html"
-      };
+      // Redirect to the role-specific page
       window.location.href = rolePages[role];
     } else {
       alert('Incorrect password. Please try again.');
     }
   }
+  
+
+  function toggleNav() {
+    const sideNav = document.getElementById("sideNav");
+    
+    if (sideNav.style.width === "250px") {
+      sideNav.style.width = "0";
+    } else {
+      sideNav.style.width = "250px";
+    }
+  }
+  
+
+  // Function to show crop details based on the selected crop
+document.getElementById('crop').addEventListener('change', function() {
+    const selectedCrop = this.value;
+    const cropDetailsSection = document.getElementById('cropDetails');
+    const cropData = document.getElementById('cropData');
+  
+    // Toggle visibility of crop details
+    cropDetailsSection.style.display = 'block';
+  
+    // Clear existing crop data
+    cropData.innerHTML = '';
+  
+    // Add dummy crop data based on selected crop
+    if (selectedCrop === 'Rice') {
+      cropData.innerHTML = `
+        <tr>
+          <td>28</td>
+          <td>75</td>
+          <td>90</td>
+          <td>High</td>
+        </tr>
+        <tr>
+          <td>30</td>
+          <td>80</td>
+          <td>80</td>
+          <td>Medium</td>
+        </tr>
+        <tr>
+          <td>25</td>
+          <td>70</td>
+          <td>100</td>
+          <td>High</td>
+        </tr>
+      `;
+    } else if (selectedCrop === 'Wheat') {
+      cropData.innerHTML = `
+        <tr>
+          <td>25</td>
+          <td>70</td>
+          <td>75</td>
+          <td>High</td>
+        </tr>
+        <tr>
+          <td>26</td>
+          <td>72</td>
+          <td>80</td>
+          <td>Medium</td>
+        </tr>
+      `;
+    }
+    // Add more crop data if necessary for other crops...
+  });
   

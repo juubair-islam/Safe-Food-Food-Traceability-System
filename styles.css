@@ -662,4 +662,225 @@ body {
     from { opacity: 0; }
     to { opacity: 1; }
   }
+
+  
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  header .header-logo {
+    width: 50px;
+    vertical-align: middle;
+  }
+  
+  header h1 {
+    display: inline;
+    margin-left: 15px;
+  }
+  
+  footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+  
+  .footer-left, .footer-right {
+    display: inline-block;
+    padding: 5px;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  
+  /* Side Navigation Bar (Slider Menu) */
+  .side-nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #4CAF50;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .side-nav .user-info {
+    text-align: center;
+    color: white;
+  }
+  
+  .side-nav .user-info .user-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .side-nav h3 {
+    color: white;
+    font-size: 18px;
+  }
+  
+  .side-nav nav {
+    padding-top: 20px;
+  }
+  
+  .side-nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .side-nav ul li {
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .side-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+  }
+  
+  .side-nav ul li a:hover {
+    background-color: #2ecc71;
+  }
+  
+  /* Hamburger Button */
+.hamburger {
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    background: none;
+    border: none;
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    z-index: 1000;  /* Ensure the button is above other elements */
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .side-nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #34495e;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .side-nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .side-nav ul li {
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .side-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+  }
+  
+  .side-nav ul li a:hover {
+    background-color: #2ecc71;
+  }
+  
+  
+  /* Main Content */
+  .main-content {
+    margin-left: 0;
+    padding: 20px;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .main-content {
+      margin-left: 0;
+    }
+  }
+  
+
+/* Form styling for Add Crop */
+form {
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #27ae60;
+  }
+  
+  table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+  
+  table th, table td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  footer {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  footer p {
+    margin: 0;
+  }
   
