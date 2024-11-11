@@ -769,7 +769,7 @@ body {
     background: none;
     border: none;
     position: fixed;
-    top: 10px;
+    top: 100px;
     left: 20px;
     z-index: 1000;  /* Ensure the button is above other elements */
     cursor: pointer;
@@ -874,7 +874,7 @@ form {
   }
   
   footer {
-    background-color: #4CAF50;
+    background-color: #000000;
     color: white;
     padding: 10px 0;
     text-align: center;
