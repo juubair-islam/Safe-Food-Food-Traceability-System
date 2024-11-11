@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing Unit Manager Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>SAFE FOOD TRACEABILITY SYSTEM</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="nutritionist_dashboard.html">Nutritionist Dashboard</a></li>
+            <li><a href="processing_unit_manager_dashboard.html">Processing Unit Manager Dashboard</a></li>
+            <li><a href="government_officer_dashboard.html">Government Officer Dashboard</a></li>
+            <li><a href="temperature-graph.html">Temperature Graph</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="dashboard">
+            <h2>Processing Unit Manager Dashboard</h2>
+            <label for="cropSelect">Select Crop:</label>
+            <select id="cropSelect">
+                <option value="">--Select a Crop--</option>
+                <option value="rice">Rice</option>
+                <option value="wheat">Wheat</option>
+                <option value="corn">Corn</option>
+                <option value="potato">Potato</option>
+                <option value="carrot">Carrot</option>
+            </select>
+
+            <div>
+                <label for="quantity">Product Quantity:</label>
+                <input type="number" id="quantity" placeholder="Enter quantity" min="1">
+            </div>
+
+            <div>
+                <label for="harvestDate">Harvest Date:</label>
+                <input type="date" id="harvestDate">
+            </div>
+
+            <div>
+                <label for="harvestDistrict">Harvest District:</label>
+                <input type="text" id="harvestDistrict" placeholder="Enter harvest district">
+            </div>
+
+            <button id="saveData">Save Data</button>
+
+            <div class="chart-container" style="width: 100%; height: 400px;">
+                <canvas id="cropChart"></canvas>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

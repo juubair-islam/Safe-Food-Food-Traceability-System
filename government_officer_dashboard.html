@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Officer Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>SAFE FOOD TRACEABILITY SYSTEM</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="nutritionist_dashboard.html">Nutritionist Dashboard</a></li>
+            <li><a href="processing_unit_manager_dashboard.html">Processing Unit Manager Dashboard</a></li>
+            <li><a href="government_officer_dashboard.html">Government Officer Dashboard</a></li>
+            <li><a href="temperature-graph.html">Temperature Graph</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="dashboard">
+            <h2>Government Officer Dashboard</h2>
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th>Crop</th>
+                        <th>Quantity</th>
+                        <th>Harvest Date</th>
+                        <th>Harvest District</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script>
+        $(document).ready(function() {
+            // Assuming savedData is accessible, you could use AJAX to get the saved data from the server
+            const savedData = JSON.parse(localStorage.getItem('savedCropData')) || [];
+
+            // Populate the table with saved data
+            savedData.forEach(data => {
+                $('#dataTable tbody').append(`
+                    <tr>
+                        <td>${data.crop}</td>
+                        <td>${data.quantity}</td>
+                        <td>${data.harvestDate}</td>
+                        <td>${data.harvestDistrict}</td>
+                    </tr>
+                `);
+            });
+        });
+    </script>
+</body>
+</html>
