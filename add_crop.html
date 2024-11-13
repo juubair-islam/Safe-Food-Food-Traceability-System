@@ -36,10 +36,10 @@
   <!-- Main Content -->
   <main>
     <h2>Add Crop</h2>
-    <form id="addCropForm">
+    <form id="addCropForm" action="add_crop.php" method="POST">
+
       <label for="district">Select Area:</label>
-      <select id="district" required>
-        <!-- Dummy list of districts in Bangladesh -->
+      <select id="district" name="district" required>
         <option value="Dhaka">Dhaka</option>
         <option value="Chittagong">Chittagong</option>
         <option value="Khulna">Khulna</option>
@@ -49,13 +49,13 @@
       </select><br>
 
       <label for="farmerName">Enter Farmer Name:</label>
-      <input type="text" id="farmerName" placeholder="Enter Farmer's Name" required><br>
+      <input type="text" id="farmerName" name="farmerName" placeholder="Enter Farmer's Name" required><br>
 
       <label for="fieldLocation">Field Location:</label>
-      <input type="text" id="fieldLocation" placeholder="Enter Field Location" required><br>
+      <input type="text" id="fieldLocation" name="fieldLocation" placeholder="Enter Field Location" required><br>
 
       <label for="crop">Select Crop:</label>
-      <select id="crop" required>
+      <select id="crop" name="crop" required>
         <option value="Rice">Rice</option>
         <option value="Wheat">Wheat</option>
         <option value="Maize">Maize</option>
@@ -63,7 +63,6 @@
         <option value="Sugarcane">Sugarcane</option>
       </select><br>
 
-      <!-- Crop Data Table (Temperature, Humidity, Day Limit, Nutrition Value) -->
       <div id="cropDetails" style="display:none;">
         <h3>Crop Details</h3>
         <table border="1">
@@ -76,7 +75,6 @@
             </tr>
           </thead>
           <tbody id="cropData">
-            <!-- Dummy Data (will be displayed based on selected crop) -->
             <tr>
               <td>28</td>
               <td>75</td>
@@ -100,14 +98,14 @@
       </div>
 
       <label for="harvestDate">Harvest Date:</label>
-      <input type="date" id="harvestDate" required><br>
+      <input type="date" id="harvestDate" name="harvestDate" required><br>
 
       <label for="quantity">Select Quantity:</label>
-      <input type="number" id="quantity" placeholder="Enter Quantity" required><br>
+      <input type="number" id="quantity" name="quantity" placeholder="Enter Quantity" required><br>
 
-      <!-- Automated Batch Number -->
+      <!-- Batch Number (Dynamically Generated) -->
       <label for="batchNumber">Batch Number:</label>
-      <input type="text" id="batchNumber" value="BATCH-001" readonly><br>
+      <input type="text" id="batchNumber" name="batchNumber" value="<?php echo $batchNumber; ?>" readonly><br>
 
       <button type="submit">Add Crop</button>
     </form>
