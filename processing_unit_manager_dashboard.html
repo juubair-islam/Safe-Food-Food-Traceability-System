@@ -5,39 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add Crop - Safe Food Traceability System</title>
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .table-container {
-      margin-top: 20px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    th, td {
-      padding: 10px;
-      text-align: left;
-      border: 1px solid #ddd;
-    }
-    th {
-      background-color: #4CAF50;
-      color: white;
-    }
-    select, input {
-      margin: 10px 0;
-      padding: 5px;
-      width: 100%;
-    }
-  </style>
 </head>
 <body>
-  <header>
+  <!-- Header -->
+  <header style="background-color: #4CAF50;">
     <a href="index.html" class="header-link">
       <img src="image/Logo.png" alt="Logo" class="header-logo">
       <h1>SAFE FOOD TRACEABILITY SYSTEM</h1>
     </a>
+    <div class="user-info">
+      <span id="loggedInName">Processing Unit Manager</span> <!-- Display logged-in user's name -->
+    </div>
   </header>
 
-  <!-- Side Navigation Bar -->
+  <!-- Hamburger Button -->
+  <button class="hamburger" onclick="toggleNav()">&#9776;</button>
+
+  <!-- Side Navigation -->
   <div id="sideNav" class="side-nav">
     <ul>
       <li><a href="processing_unit_manager_dashboard.html">View Crops</a></li>
@@ -49,64 +33,122 @@
     </ul>
   </div>
 
+  <!-- Main Content -->
   <main>
-    <div class="form-container">
-      <h2>Add Crop</h2>
-      <form id="addCropForm">
-        <label for="district">Select Area:</label>
-        <select id="district">
-          <option value="Dhaka">Dhaka</option>
-          <option value="Chittagong">Chittagong</option>
-          <option value="Rajshahi">Rajshahi</option>
-          <option value="Khulna">Khulna</option>
-          <option value="Barisal">Barisal</option>
-        </select>
+    <h2>Add Crop</h2>
+    <form id="addCropForm" action="http://localhost/Safe-Food-Food-Traceability-System/add_crop.php" method="POST">
 
-        <label for="farmerName">Enter Farmer Name:</label>
-        <input type="text" id="farmerName" placeholder="Farmer Name">
 
-        <label for="fieldLocation">Field Location:</label>
-        <input type="text" id="fieldLocation" placeholder="Field Location">
+      <label for="district">Select Area:</label>
+      <select id="district" name="district" required>
+        <option value="Dhaka">Dhaka</option>
+        <option value="Chittagong">Chittagong</option>
+        <option value="Khulna">Khulna</option>
+        <option value="Rajshahi">Rajshahi</option>
+        <option value="Sylhet">Sylhet</option>
+        <option value="Barisal">Barisal</option>
+      </select><br>
 
-        <label for="crop">Select Crop:</label>
-        <select id="crop" onchange="displayCropDetails()">
-          <option value="">Select Crop</option>
-          <option value="Rice">Rice</option>
-          <option value="Wheat">Wheat</option>
-          <option value="Maize">Maize</option>
-        </select>
+      <label for="farmerName">Enter Farmer Name:</label>
+      <input type="text" id="farmerName" name="farmerName" placeholder="Enter Farmer's Name" required><br>
 
-        <!-- Table will be shown here -->
-        <div class="table-container" id="cropDetails" style="display: none;">
-          <h3>Crop Details</h3>
-          <table id="cropDetailsTable">
-            <thead>
+      <label for="fieldLocation">Field Location:</label>
+      <input type="text" id="fieldLocation" name="fieldLocation" placeholder="Enter Field Location" required><br>
+
+      <label for="crop">Select Crop:</label>
+      <select id="crop" onchange="displayCropDetails()">
+        <option value="">Select Crop</option>
+        <option value="Rice">Rice</option>
+        <option value="Wheat">Wheat</option>
+        <option value="Maize">Maize</option>
+      </select>
+      
+      <!-- Table will be shown here -->
+      <div class="table-container" id="cropDetails" style="display: none;">
+        <h3>Crop Details</h3>
+        <table id="cropDetailsTable">
+          <thead>
+            <tr>
+              <th>Temperature</th>
+              <th>Humidity</th>
+              <th>Day Limit</th>
+              <th>Nutrition Value (By Days)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Table rows will be added here dynamically -->
+          </tbody>
+        </table>
+      </div>
+      
+      <script>
+        function displayCropDetails() {
+          const crop = document.getElementById('crop').value;
+          const cropDetails = document.getElementById('cropDetails');
+          const cropDetailsTableBody = document.querySelector('#cropDetailsTable tbody');
+      
+          // Clear any existing rows
+          cropDetailsTableBody.innerHTML = '';
+      
+          // Dummy data for crops
+          const cropData = {
+            Rice: {
+              Temperature: "20-25°C",
+              Humidity: "70-80%",
+              DayLimit: "90 days",
+              NutritionValue: "95% on Day 1, decreases 1% daily"
+            },
+            Wheat: {
+              Temperature: "15-20°C",
+              Humidity: "60-70%",
+              DayLimit: "100 days",
+              NutritionValue: "90% on Day 1, decreases 0.5% daily"
+            },
+            Maize: {
+              Temperature: "25-30°C",
+              Humidity: "50-60%",
+              DayLimit: "120 days",
+              NutritionValue: "85% on Day 1, decreases 0.8% daily"
+            }
+          };
+      
+          if (crop && cropData[crop]) {
+            // Add the row for the selected crop
+            const row = `
               <tr>
-                <th>Temperature</th>
-                <th>Humidity</th>
-                <th>Day Limit</th>
-                <th>Nutrition Value (By Days)</th>
+                <td>${cropData[crop].Temperature}</td>
+                <td>${cropData[crop].Humidity}</td>
+                <td>${cropData[crop].DayLimit}</td>
+                <td>${cropData[crop].NutritionValue}</td>
               </tr>
-            </thead>
-            <tbody>
-              <!-- Table rows will be added here dynamically -->
-            </tbody>
-          </table>
-        </div>
+            `;
+            cropDetailsTableBody.innerHTML = row;
+      
+            // Display the table
+            cropDetails.style.display = 'block';
+          } else {
+            // Hide the table if no crop is selected
+            cropDetails.style.display = 'none';
+          }
+        }
+      </script>
+      
 
-        <label for="harvestDate">Harvest Date:</label>
-        <input type="date" id="harvestDate">
+      <label for="harvestDate">Harvest Date:</label>
+      <input type="date" id="harvestDate" name="harvestDate" required><br>
 
-        <label for="quantity">Select Quantity:</label>
-        <input type="number" id="quantity" placeholder="Enter Quantity">
+      <label for="quantity">Select Quantity (in kg):</label>
+      <input type="number" id="quantity" name="quantity" placeholder="Enter Quantity" required><br>
 
-        <!-- Batch number will be generated automatically -->
-        <label for="batchNumber">Batch Number:</label>
-        <input type="text" id="batchNumber" readonly>
-      </form>
-    </div>
+      <!-- Display the generated batch number -->
+      <label for="batchNumber">Batch Number:</label>
+      <input type="text" name="batchNumber" id="batchNumber" value="<?php echo $batchNumber; ?>" readonly><br>
+
+      <button type="submit">Add Crop</button>
+    </form>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-left">
       <p>Contact us: contact@safefoodtrace.com</p>
@@ -116,49 +158,6 @@
     </div>
   </footer>
 
-  <script>
-    function displayCropDetails() {
-      const crop = document.getElementById("crop").value;
-      const cropDetailsTable = document.getElementById("cropDetailsTable").getElementsByTagName('tbody')[0];
-      const cropDetails = document.getElementById("cropDetails");
-      const batchNumber = document.getElementById("batchNumber");
-
-      const cropsData = {
-        "Rice": [
-          { temperature: "25°C", humidity: "80%", dayLimit: "30", nutritionValue: "10g/day" },
-          { temperature: "27°C", humidity: "75%", dayLimit: "25", nutritionValue: "9g/day" },
-        ],
-        "Wheat": [
-          { temperature: "20°C", humidity: "70%", dayLimit: "35", nutritionValue: "8g/day" },
-          { temperature: "22°C", humidity: "65%", dayLimit: "30", nutritionValue: "7g/day" },
-        ],
-        "Maize": [
-          { temperature: "30°C", humidity: "65%", dayLimit: "28", nutritionValue: "12g/day" },
-          { temperature: "32°C", humidity: "60%", dayLimit: "25", nutritionValue: "11g/day" },
-        ]
-      };
-
-      // Clear the previous table data
-      cropDetailsTable.innerHTML = '';
-
-      // If a valid crop is selected, display crop details
-      if (cropsData[crop]) {
-        cropsData[crop].forEach(detail => {
-          const row = cropDetailsTable.insertRow();
-          row.innerHTML = `<td>${detail.temperature}</td><td>${detail.humidity}</td><td>${detail.dayLimit}</td><td>${detail.nutritionValue}</td>`;
-        });
-
-        // Show the crop details section
-        cropDetails.style.display = "block";
-
-        // Generate a unique batch number
-        const uniqueBatchNumber = `${crop}-${Math.floor(Math.random() * 10000)}`;
-        batchNumber.value = uniqueBatchNumber;
-      } else {
-        cropDetails.style.display = "none";
-      }
-    }
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
