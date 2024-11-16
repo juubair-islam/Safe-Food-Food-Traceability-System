@@ -1,0 +1,130 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.header-logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+    flex-grow: 1;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 200px;
+    position: fixed;
+    top: 60px; /* Pushes the sidebar below the header */
+    left: -200px; /* Hidden by default */
+    height: calc(100% - 60px); /* Full height minus header height */
+    background-color: #4CAF50;
+    padding-top: 20px;
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+.sidebar button {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    color: white;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.sidebar button:hover {
+    background-color: #45a049;
+}
+
+.sidebar-toggle {
+    margin-top: 80px; /* Position toggle under the logo */
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: rgb(53, 181, 11);
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+}
+
+/* Sidebar Active State */
+.sidebar.active {
+    left: 0; /* Makes the sidebar visible */
+}
+
+/* Ensure Sidebar Doesn't Overlap Footer */
+.sidebar + footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    z-index: 500; /* Lower z-index than the sidebar */
+}
+
+/* Main Content */
+.container {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 0; /* Default margin when sidebar is hidden */
+    transition: margin-left 0.3s;
+}
+
+/* Footer Styles */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    box-sizing: border-box;
+}
+
+.footer-left {
+    text-align: left;
+    font-size: 14px;
+}
+
+.footer-right {
+    text-align: right;
+    font-size: 14px;
+}
+
+/* Fix footer not overlapping content */
+footer p {
+    margin: 0;
+}
+
+/* Ensuring footer content stays within the visible area */
+.footer-right, .footer-left {
+    flex: 1;
+}

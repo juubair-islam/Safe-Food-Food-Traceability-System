@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retailer Dashboard - Safe Food Traceability System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="a1style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <img src="Logo.png" alt="SFTS Logo" class="header-logo">
+        <h1>SAFE FOOD TRACEABILITY SYSTEM</h1>
+        <button id="toggleSidebar" class="sidebar-toggle">☰</button>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <button onclick="showTransactionHistory()">Transaction History</button>
+        <button onclick="showNewShipment()">New Shipment</button>
+        <button onclick="showProductQuery()">Product Query</button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h2>Retailer Information</h2>
+        <p><strong>Retailer Name:</strong> ABC</p>
+        <p><strong>Contact Info:</strong> 0190000000</p>
+        <p><strong>Shop Address:</strong> 500/c, road 10, block Z, Bashundhara R/A</p>
+
+        <!-- Transaction History -->
+        <div id="transactionHistory" style="display: none;">
+            <h2>Transaction History</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Transaction Date</th>
+                        <th>Batch ID</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionHistoryBody">
+                    <!-- Rows dynamically added -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- New Shipment Form -->
+        <div id="newShipmentForm" style="display: none;">
+            <h2>New Shipment</h2>
+            <form id="shipmentForm">
+                <label for="transactionId">Transaction ID:</label>
+                <input type="text" id="transactionId" required>
+                <label for="transactionDate">Transaction Date:</label>
+                <input type="date" id="transactionDate" required>
+                <label for="batchId">Batch ID:</label>
+                <input type="text" id="batchId" required>
+                <label for="cropName">Crop Name:</label>
+                <input type="text" id="cropName" required>
+                <label for="receivedQuantity">Received Quantity:</label>
+                <input type="number" id="receivedQuantity" required>
+                <label for="totalPaid">Total Paid:</label>
+                <input type="number" id="totalPaid" required>
+                <label for="returnedBags">Returned Bags:</label>
+                <input type="number" id="returnedBags" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <!-- Product Query Form -->
+        <div id="productQueryForm" style="display: none;">
+            <h2>Product Query</h2>
+            <form id="queryForm">
+                <label for="queryTransactionId">Transaction ID:</label>
+                <input type="text" id="queryTransactionId" required>
+                <label for="queryTransactionDate">Transaction Date:</label>
+                <input type="date" id="queryTransactionDate" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <!-- Result Table -->
+        <div id="resultTable" style="display: none;">
+            <h2>Transaction Details</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Transaction Date</th>
+                        <th>Batch ID</th>
+                        <th>Crop Name</th>
+                        <th>Quantity</th>
+                        <th>Best Before</th>
+                        <th>Total Paid</th>
+                        <th>Returned Bags</th>
+                    </tr>
+                </thead>
+                <tbody id="resultTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-left">
+            <p>Contact us: contact@safefoodtrace.com</p>
+        </div>
+        <div class="footer-right">
+            <p>&copy; All rights reserved to Team Akaimma</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
