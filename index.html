@@ -6,6 +6,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Safe Food Traceability System</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .error-message {
+      color: white;
+      background-color: red;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+      display: none;
+    }
+    #cropDetails {
+      margin-top: 10px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 10px;
+    }
+    table th, table td {
+      border: 1px solid #000000;
+      padding: 8px;
+    }
+    table th {
+      background-color: #388e3c;
+      text-align: left;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -25,15 +51,18 @@
 
     <!-- Search Crop Section -->
     <section class="search-crop">
-      <h3>Search Crop</h3>
+      <h3>Search Crop Batch Number</h3>
       <input type="text" id="batchNumber" placeholder="Enter Batch Number">
       <button onclick="searchCrop()">Search</button>
+      <div id="error-message" class="error-message"></div>
       <div id="cropDetails" style="display: none;">
         <table>
-          <tr><th>Product Description</th><td>Fresh Organic Tomato</td></tr>
-          <tr><th>Harvest Date</th><td>2024-10-15</td></tr>
-          <tr><th>Nutrition Value</th><td>Rich in Vitamins A and C</td></tr>
-          <tr><th>Best Before Use</th><td>2024-11-15</td></tr>
+          <tbody>
+            <tr><th>Crop Details</th><td id="cropDetail"></td></tr>
+            <tr><th>Harvest Date</th><td id="harvestDate"></td></tr>
+            <tr><th>Current Nutrition Value</th><td id="nutritionValue"></td></tr>
+            <tr><th>Best Before Use</th><td id="bestBefore"></td></tr>
+          </tbody>
         </table>
       </div>
     </section>
@@ -48,7 +77,36 @@
     </div>
   </footer>
   
+  <script>
+    function searchCrop() {
+      const batchNumber = document.getElementById('batchNumber').value.trim();
+      const errorMessage = document.getElementById('error-message');
+      const cropDetails = document.getElementById('cropDetails');
 
-  <script src="js/script.js"></script>
+      // Dummy data
+      const crops = {
+        "001": { detail: "Fresh Organic Tomato", harvestDate: "2024-10-15", nutritionValue: "95%", bestBefore: "2024-11-15" },
+        "002": { detail: "Fresh Organic Cucumber", harvestDate: "2024-10-10", nutritionValue: "90%", bestBefore: "2024-11-10" },
+        "003": { detail: "Fresh Organic Lettuce", harvestDate: "2024-10-12", nutritionValue: "85%", bestBefore: "2024-11-12" },
+      };
+
+      // Clear previous messages and data
+      errorMessage.style.display = "none";
+      cropDetails.style.display = "none";
+
+      if (batchNumber in crops) {
+        // Display crop details
+        document.getElementById('cropDetail').textContent = crops[batchNumber].detail;
+        document.getElementById('harvestDate').textContent = crops[batchNumber].harvestDate;
+        document.getElementById('nutritionValue').textContent = crops[batchNumber].nutritionValue;
+        document.getElementById('bestBefore').textContent = crops[batchNumber].bestBefore;
+        cropDetails.style.display = "block";
+      } else {
+        // Display error message
+        errorMessage.textContent = "The batch number does not exist in the database.";
+        errorMessage.style.display = "block";
+      }
+    }
+  </script>
 </body>
 </html>
