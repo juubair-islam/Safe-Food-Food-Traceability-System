@@ -261,7 +261,7 @@ function searchCrop() {
       "Processing Unit Manager": "processing_unit_manager_dashboard.html",
       "Supervisor": "supervisor_dashboard.html",
       "Government Officer": "government_officer_dashboard.html",
-      "Cold-Storage In Charge": "cold_storage_in_charge_dashboard.html",
+      "Cold-Storage In Charge": "nutritionist_dashboard.html",
       "Retailer": "retailer_dashboard.html"
     };
   

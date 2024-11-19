@@ -36,10 +36,11 @@
   <!-- Main Content -->
   <main>
     <h2>Add Crop</h2>
-    <form id="addCropForm">
+    <form id="addCropForm" action="http://localhost/Safe-Food-Food-Traceability-System/add_crop.php" method="POST">
+
+
       <label for="district">Select Area:</label>
-      <select id="district" required>
-        <!-- Dummy list of districts in Bangladesh -->
+      <select id="district" name="district" required>
         <option value="Dhaka">Dhaka</option>
         <option value="Chittagong">Chittagong</option>
         <option value="Khulna">Khulna</option>
@@ -49,65 +50,99 @@
       </select><br>
 
       <label for="farmerName">Enter Farmer Name:</label>
-      <input type="text" id="farmerName" placeholder="Enter Farmer's Name" required><br>
+      <input type="text" id="farmerName" name="farmerName" placeholder="Enter Farmer's Name" required><br>
 
       <label for="fieldLocation">Field Location:</label>
-      <input type="text" id="fieldLocation" placeholder="Enter Field Location" required><br>
+      <input type="text" id="fieldLocation" name="fieldLocation" placeholder="Enter Field Location" required><br>
 
       <label for="crop">Select Crop:</label>
-      <select id="crop" required>
+      <select id="crop" onchange="displayCropDetails()">
+        <option value="">Select Crop</option>
         <option value="Rice">Rice</option>
         <option value="Wheat">Wheat</option>
         <option value="Maize">Maize</option>
-        <option value="Barley">Barley</option>
-        <option value="Sugarcane">Sugarcane</option>
-      </select><br>
-
-      <!-- Crop Data Table (Temperature, Humidity, Day Limit, Nutrition Value) -->
-      <div id="cropDetails" style="display:none;">
+      </select>
+      
+      <!-- Table will be shown here -->
+      <div class="table-container" id="cropDetails" style="display: none;">
         <h3>Crop Details</h3>
-        <table border="1">
+        <table id="cropDetailsTable">
           <thead>
             <tr>
-              <th>Temperature (°C)</th>
-              <th>Humidity (%)</th>
+              <th>Temperature</th>
+              <th>Humidity</th>
               <th>Day Limit</th>
-              <th>Nutrition Value by Days</th>
+              <th>Nutrition Value (By Days)</th>
             </tr>
           </thead>
-          <tbody id="cropData">
-            <!-- Dummy Data (will be displayed based on selected crop) -->
-            <tr>
-              <td>28</td>
-              <td>75</td>
-              <td>90</td>
-              <td>High</td>
-            </tr>
-            <tr>
-              <td>30</td>
-              <td>80</td>
-              <td>80</td>
-              <td>Medium</td>
-            </tr>
-            <tr>
-              <td>25</td>
-              <td>70</td>
-              <td>100</td>
-              <td>High</td>
-            </tr>
+          <tbody>
+            <!-- Table rows will be added here dynamically -->
           </tbody>
-        </table><br>
+        </table>
       </div>
+      
+      <script>
+        function displayCropDetails() {
+          const crop = document.getElementById('crop').value;
+          const cropDetails = document.getElementById('cropDetails');
+          const cropDetailsTableBody = document.querySelector('#cropDetailsTable tbody');
+      
+          // Clear any existing rows
+          cropDetailsTableBody.innerHTML = '';
+      
+          // Dummy data for crops
+          const cropData = {
+            Rice: {
+              Temperature: "20-25°C",
+              Humidity: "70-80%",
+              DayLimit: "90 days",
+              NutritionValue: "95% on Day 1, decreases 1% daily"
+            },
+            Wheat: {
+              Temperature: "15-20°C",
+              Humidity: "60-70%",
+              DayLimit: "100 days",
+              NutritionValue: "90% on Day 1, decreases 0.5% daily"
+            },
+            Maize: {
+              Temperature: "25-30°C",
+              Humidity: "50-60%",
+              DayLimit: "120 days",
+              NutritionValue: "85% on Day 1, decreases 0.8% daily"
+            }
+          };
+      
+          if (crop && cropData[crop]) {
+            // Add the row for the selected crop
+            const row = `
+              <tr>
+                <td>${cropData[crop].Temperature}</td>
+                <td>${cropData[crop].Humidity}</td>
+                <td>${cropData[crop].DayLimit}</td>
+                <td>${cropData[crop].NutritionValue}</td>
+              </tr>
+            `;
+            cropDetailsTableBody.innerHTML = row;
+      
+            // Display the table
+            cropDetails.style.display = 'block';
+          } else {
+            // Hide the table if no crop is selected
+            cropDetails.style.display = 'none';
+          }
+        }
+      </script>
+      
 
       <label for="harvestDate">Harvest Date:</label>
-      <input type="date" id="harvestDate" required><br>
+      <input type="date" id="harvestDate" name="harvestDate" required><br>
 
-      <label for="quantity">Select Quantity:</label>
-      <input type="number" id="quantity" placeholder="Enter Quantity" required><br>
+      <label for="quantity">Select Quantity (in kg):</label>
+      <input type="number" id="quantity" name="quantity" placeholder="Enter Quantity" required><br>
 
-      <!-- Automated Batch Number -->
+      <!-- Display the generated batch number -->
       <label for="batchNumber">Batch Number:</label>
-      <input type="text" id="batchNumber" value="BATCH-001" readonly><br>
+      <input type="text" name="batchNumber" id="batchNumber" value="<?php echo $batchNumber; ?>" readonly><br>
 
       <button type="submit">Add Crop</button>
     </form>
