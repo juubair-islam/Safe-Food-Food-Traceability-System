@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retailer Dashboard - Safe Food Traceability System</title>
+    <title>Retailer Dashboard - Farm To Fork</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="a1style.css">
 </head>
@@ -12,7 +12,7 @@
     <!-- Header -->
     <header>
         <img src="Logo.png" alt="SFTS Logo" class="header-logo">
-        <h1>SAFE FOOD TRACEABILITY SYSTEM</h1>
+        <h1>Farm To Fork</h1>
         <button id="toggleSidebar" class="sidebar-toggle">☰</button>
     </header>
 
@@ -39,6 +39,7 @@
                         <th>Transaction ID</th>
                         <th>Transaction Date</th>
                         <th>Batch ID</th>
+                        <th>Returned Batch</th>
                     </tr>
                 </thead>
                 <tbody id="transactionHistoryBody">
@@ -63,8 +64,8 @@
                 <input type="number" id="receivedQuantity" required>
                 <label for="totalPaid">Total Paid:</label>
                 <input type="number" id="totalPaid" required>
-                <label for="returnedBags">Returned Bags:</label>
-                <input type="number" id="returnedBags" required>
+                <label for="returnedBags">Returned Batch:</label>
+                <input type="number" id="returnedBatch" required>
                 <button type="submit">Submit</button>
             </form>
         </div>
@@ -94,7 +95,7 @@
                         <th>Quantity</th>
                         <th>Best Before</th>
                         <th>Total Paid</th>
-                        <th>Returned Bags</th>
+                        <th>Returned Batch</th>
                     </tr>
                 </thead>
                 <tbody id="resultTableBody">
